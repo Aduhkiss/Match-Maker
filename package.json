@@ -1,0 +1,29 @@
+{
+  "//1": "describes your app and its dependencies",
+  "name": "beefy-bot",
+  "version": "0.0.1",
+  "description": "Discord bot written with the Discord.js API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "node-opus": "^0.3.0"
+  },
+  "engines": {
+    "node": "8.4.0"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/welcome-project"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
