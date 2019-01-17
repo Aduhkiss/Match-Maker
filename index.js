@@ -82,7 +82,7 @@ client.on("message", async message => {
 	
 	// The Ping command
 	if(command === "ping") {
-		const m = await message.channel.send("Ping?");
+		const m = await message.channel.send("Pong?");
 		console.log(`[USER ACCOUNTS] ${message.author.username} has run command !ping`);
 		m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms = API Latency is ${Math.round(client.ping)}ms`);
 	}
