@@ -12,7 +12,7 @@
 
 var runLogin = true;
 
-var AdminsOnly = true;
+var AdminsOnly = false;
 var LimitationReason = "Bot still being coded! :face_palm:";
 
 var VERSION = "0.2";
@@ -37,6 +37,12 @@ if(runLogin == true) {
   console.log("");
   console.log("Welcome to Atticus Zambrana's ");
   console.log(" __   __  _______  _______  _______  __   __    __   __  _______  ___   _  _______  ______   \n|  |_|  ||   _   ||       ||       ||  | |  |  |  |_|  ||   _   ||   | | ||       ||    _ |  \n|       ||  |_|  ||_     _||       ||  |_|  |  |       ||  |_|  ||   |_| ||    ___||   | ||  \n|       ||       |  |   |  |       ||       |  |       ||       ||      _||   |___ |   |_||_ \n|       ||       |  |   |  |      _||       |  |       ||       ||     |_ |    ___||    __  |\n| ||_|| ||   _   |  |   |  |     |_ |   _   |  | ||_|| ||   _   ||    _  ||   |___ |   |  | |\n|_|   |_||__| |__|  |___|  |_______||__| |__|  |_|   |_||__| |__||___| |_||_______||___|  |_|\n");
+}
+
+// Any code that we want to run right when the bot starts
+
+if(AdminsOnly) {
+	console.log(`[COMMAND CENTER] At the moment in time, all commands are limited to Administrators only, for the reason: ${LimitationReason}`);
 }
 
 // General Guild Code
