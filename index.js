@@ -15,7 +15,7 @@ var runLogin = true;
 var AdminsOnly = false;
 var LimitationReason = "Bot still being coded! :face_palm:";
 
-var VERSION = "0.2";
+var VERSION = "0.5";
 const LOGIN = "NTA5MDM4MDg1NzI4ODk0OTc4.DyA51Q.bXsym83U-ggqtJlxJ61KoLy7HJY";
 
 console.log("Now loading Match maker bot - Created by Atticus Zambrana");
@@ -28,8 +28,8 @@ const client = new Discord.Client();
 var runLogin = true;
 
 // PLAYING, WATCHING, LISTENING
-var activityType = "WATCHING";
-var activityName = "YouTube";
+var activityType = "PLAYING";
+var activityName = "Do !help";
 
 console.log("Logging in to Official Discord Servers...");
 if(runLogin == true) {
@@ -37,6 +37,7 @@ if(runLogin == true) {
   console.log("");
   console.log("Welcome to Atticus Zambrana's ");
   console.log(" __   __  _______  _______  _______  __   __    __   __  _______  ___   _  _______  ______   \n|  |_|  ||   _   ||       ||       ||  | |  |  |  |_|  ||   _   ||   | | ||       ||    _ |  \n|       ||  |_|  ||_     _||       ||  |_|  |  |       ||  |_|  ||   |_| ||    ___||   | ||  \n|       ||       |  |   |  |       ||       |  |       ||       ||      _||   |___ |   |_||_ \n|       ||       |  |   |  |      _||       |  |       ||       ||     |_ |    ___||    __  |\n| ||_|| ||   _   |  |   |  |     |_ |   _   |  | ||_|| ||   _   ||    _  ||   |___ |   |  | |\n|_|   |_||__| |__|  |___|  |_______||__| |__|  |_|   |_||__| |__||___| |_||_______||___|  |_|\n");
+  //client.user.setActivity(activityName, { type: activityType });
 }
 
 // Any code that we want to run right when the bot starts
@@ -62,6 +63,7 @@ client.on("message", async message => {
 	client.user.setActivity(activityName, { type: activityType });
 	// Message Code (for any messages that get passed through)
 	// use ! for all command prefixes
+	// This code will ensure that we only listen to commands
 	if(message.content.indexOf("!") !== 0) return;
 	
 	const args = message.content.slice(1).trim().split(/ +/g);
@@ -83,6 +85,7 @@ client.on("message", async message => {
 		message.channel.send(` - !ping = Get ping of your client and Discord API`);
 		message.channel.send(` - !info = Show information about the Match Maker bot`);
 		message.channel.send(` - !admire <@User> = Admire another user`);
+		message.channel.send(` - !randommatch = Find a random match from the server!`);
 		//message.channel.send(` - !matchme = Let Match Maker find you the perfect match!`);
 	}
 	
@@ -97,6 +100,13 @@ client.on("message", async message => {
 	if(command === "info") {
 		console.log(`[USER ACCOUNTS] ${message.author.username} has run command !info`);
 		message.channel.send("Hi! I am the Match Maker bot, coded by MrBeefSteak! I am currently running version " + VERSION);
+	}
+	
+	// Random Match command
+	if(command === "randommatch") {
+		console.log(`[USER ACCOUNTS] ${message.author.username} has run command !randommatch`);
+		var randomMatch = message.guild.members.random().user.username;
+		message.reply(`Your randomly selected match was ${randomMatch}`);
 	}
 	
 	// Info command
