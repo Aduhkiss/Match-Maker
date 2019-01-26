@@ -12,8 +12,8 @@
 
 var runLogin = true;
 
-var AdminsOnly = false;
-var LimitationReason = "Bot still being coded! :face_palm:";
+var AdminsOnly = true;
+var LimitationReason = "We are investigating a bug found in the match making system :face_palm:";
 
 var VERSION = "0.5";
 const LOGIN = "NTA5MDM4MDg1NzI4ODk0OTc4.DyA51Q.bXsym83U-ggqtJlxJ61KoLy7HJY";
@@ -36,6 +36,7 @@ if(runLogin == true) {
   client.login(LOGIN);
   console.log("");
   console.log("Welcome to Atticus Zambrana's ");
+  // dont worry about the ASCII Art right hear, i know its good
   console.log(" __   __  _______  _______  _______  __   __    __   __  _______  ___   _  _______  ______   \n|  |_|  ||   _   ||       ||       ||  | |  |  |  |_|  ||   _   ||   | | ||       ||    _ |  \n|       ||  |_|  ||_     _||       ||  |_|  |  |       ||  |_|  ||   |_| ||    ___||   | ||  \n|       ||       |  |   |  |       ||       |  |       ||       ||      _||   |___ |   |_||_ \n|       ||       |  |   |  |      _||       |  |       ||       ||     |_ |    ___||    __  |\n| ||_|| ||   _   |  |   |  |     |_ |   _   |  | ||_|| ||   _   ||    _  ||   |___ |   |  | |\n|_|   |_||__| |__|  |___|  |_______||__| |__|  |_|   |_||__| |__||___| |_||_______||___|  |_|\n");
   //client.user.setActivity(activityName, { type: activityType });
 }
@@ -106,6 +107,7 @@ client.on("message", async message => {
 	if(command === "randommatch") {
 		console.log(`[USER ACCOUNTS] ${message.author.username} has run command !randommatch`);
 		var randomMatch = message.guild.members.random().user.username;
+		let user = client.users.find(user => user.username == randomMatch);
 		message.reply(`Your randomly selected match was ${randomMatch}`);
 	}
 	
@@ -124,21 +126,14 @@ client.on("message", async message => {
 	// TESTING!!! Basic Match command
 	/*
 	if(command === "matchme") {
+		message.channel.send("HEY! The Rythem Dating Developer team would like to let you know, this command is in BETA and WILL MOST LIKLY NOT WORK, OR COULD BREAK SOMETHING! But, we'll still let you run it. :)");
 		console.log(`[USER ACCOUNTS] ${message.author.username} has run command !matchme`);
-		
-		var user1 = message.guild.members.random().user;
-		var user2 = message.guild.members.random().user;
-		var user3 = message.guild.members.random().user;
-		var user4 = message.guild.members.random().user;
-		var user5 = message.guild.members.random().user;
-		
 		
 		console.log(message.guild.members.random().user.username);
 	}
 	*/
+	
 });
 
 // Match Maker API
 // Created by Atticus Zambrana
-
-// TODO: Code an api, lol
