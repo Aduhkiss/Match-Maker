@@ -12,7 +12,7 @@
 
 var runLogin = true;
 
-var AdminsOnly = true;
+var AdminsOnly = false;
 var LimitationReason = "We are investigating a bug found in the match making system :face_palm:";
 
 var VERSION = "0.5";
