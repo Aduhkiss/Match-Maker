@@ -16,7 +16,7 @@ var AdminsOnly = true;
 var LimitationReason = "We are investigating a bug found in the match making system :face_palm:";
 
 var VERSION = "0.5";
-const LOGIN = "NTA5MDM4MDg1NzI4ODk0OTc4.DyA51Q.bXsym83U-ggqtJlxJ61KoLy7HJY";
+const LOGIN = "########## REDACTED #########";
 
 console.log("Now loading Match maker bot - Created by Atticus Zambrana");
 
