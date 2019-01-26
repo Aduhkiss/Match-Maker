@@ -16,7 +16,7 @@ var AdminsOnly = true;
 var LimitationReason = "We are investigating a bug found in the match making system :face_palm:";
 
 var VERSION = "0.5";
-const LOGIN = "########## REDACTED #########";
+const LOGIN = "nah bro, dont think so";
 
 console.log("Now loading Match maker bot - Created by Atticus Zambrana");
 
@@ -104,11 +104,27 @@ client.on("message", async message => {
 	}
 	
 	// Random Match command
+	// Patch Update, we will now attempt to find a person 3 times before the system gives up
+	// You will no longer get bots to be your matches
 	if(command === "randommatch") {
 		console.log(`[USER ACCOUNTS] ${message.author.username} has run command !randommatch`);
 		var randomMatch = message.guild.members.random().user.username;
 		let user = client.users.find(user => user.username == randomMatch);
+		if(user.bot) {
+			// Then try again
+			var randomMatch = message.guild.members.random().user.username;
+			let user = client.users.find(user => user.username == randomMatch);
+			if(user.bot) {
+				var randomMatch = message.guild.members.random().user.username;
+				let user = client.users.find(user => user.username == randomMatch);
+				if(user.bot) {
+					message.reply(`We had troubles finding a match for you! Try the command again!`);
+					return;
+				}
+			}
+		}
 		message.reply(`Your randomly selected match was ${randomMatch}`);
+		return;
 	}
 	
 	// Info command
